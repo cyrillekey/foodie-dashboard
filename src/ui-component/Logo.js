@@ -17,7 +17,7 @@ const Logo = () => {
          
           <img src={logo} style={{
               borderRadius:50
-          }} alt="Berry" width="100" />
+          }} alt="Berry" width="100" height="50" />
         
         
             
