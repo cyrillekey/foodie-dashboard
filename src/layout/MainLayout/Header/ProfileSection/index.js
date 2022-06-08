@@ -1,7 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import configData from '../../../../config';
-
 // material-ui
 import { makeStyles, useTheme } from '@material-ui/styles';
 import {
@@ -26,8 +24,6 @@ import ListItemButton from '@material-ui/core/ListItemButton';
 
 // third-party
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import axios from 'axios';
-
 // project imports
 import MainCard from '../../../../ui-component/cards/MainCard';
 import Transitions from '../../../../ui-component/extended/Transitions';
@@ -128,14 +124,16 @@ const ProfileSection = () => {
     const [value, setValue] = React.useState('');
     const [notification, setNotification] = React.useState(false);
     const [selectedIndex, setSelectedIndex] = React.useState(1);
-
+    
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
+    
     const handleLogout = () => {
+        
         console.log(account.token);
-        axios
-            .post( configData.API_SERVER + 'users/logout', {token: `${account.token}`}, { headers: { Authorization: `${account.token}` } })
-            .then(function (response) {
+        // axios
+        //     .post( configData.API_SERVER + 'users/logout', {token: `${account.token}`}, { headers: { Authorization: `${account.token}` } })
+        //     .then(function (response) {
                 
                 // Force the LOGOUT
                 //if (response.data.success) {
@@ -143,10 +141,10 @@ const ProfileSection = () => {
                 //} else {
                 //    console.log('response - ', response.data.msg);
                 //}
-            })
-            .catch(function (error) {
-                console.log('error - ', error);
-            });
+            // })
+            // .catch(function (error) {
+            //     console.log('error - ', error);
+            // });
     };
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
@@ -217,11 +215,12 @@ const ProfileSection = () => {
                                             <Grid item className={classes.flex}>
                                                 <Typography variant="h4">Good Morning,</Typography>
                                                 <Typography component="span" variant="h4" className={classes.name}>
-                                                    John
+
+                                                    {account.user !=null ? account.user.user_name : "John Doe"}
                                                 </Typography>
                                             </Grid>
                                             <Grid item>
-                                                <Typography variant="subtitle2">Project Admin</Typography>
+                                                <Typography variant="subtitle2">{account.user!=null ? account.user.accountType : "Admin"}</Typography>
                                             </Grid>
                                         </Grid>
                                         <OutlinedInput

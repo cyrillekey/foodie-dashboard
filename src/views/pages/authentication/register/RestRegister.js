@@ -110,36 +110,41 @@ const RestRegister = ({ ...others }) => {
         <React.Fragment>
             <Formik
                 initialValues={{
-                    username: '',
                     email: '',
                     password: '',
+                    phone:'',
                     submit: null
                 }}
                 validationSchema={Yup.object().shape({
                     email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-                    username: Yup.string().required('Username is required'),
-                    password: Yup.string().max(255).required('Password is required')
+                    
+                    password: Yup.string().max(255).required('Password is required'),
+                    phone:Yup.string().required('Phone Number is Required')
                 })}
                 onSubmit={(values, { setErrors, setStatus, setSubmitting }) => {
                     try {
                         axios
-                            .post( configData.API_SERVER + 'users/register', {
-                                username: values.username,
+                            .post( configData.API_SERVER + 'register', {
+                                user_name: values.email,
                                 password: values.password,
-                                email: values.email
+                                user_mail: values.email,
+                                accountType:'ADMIN',
+                                user_phone:values.phone
                             })
                             .then(function (response) {
-                                if (response.data.success) {
+                                if (response.status === 201) {
                                     history.push('/login');
                                 } else {
+                                    
                                     setStatus({ success: false });
-                                    setErrors({ submit: response.data.msg });
+                                    setErrors({ submit: response.data.message });
                                     setSubmitting(false);
                                 }
                             })
                             .catch(function (error) {
+                                console.log(error);
                                 setStatus({ success: false });
-                                setErrors({ submit: error.response.data.msg });
+                                setErrors({ submit: error.response.data.message });
                                 setSubmitting(false);
                             });
                     } catch (err) {
@@ -158,20 +163,20 @@ const RestRegister = ({ ...others }) => {
                             <Grid item xs={12}>
                                 <TextField
                                     fullWidth
-                                    label="Username"
+                                    label="Phone Number"
                                     margin="normal"
-                                    name="username"
-                                    id="username"
+                                    name="phone"
+                                    id="phone"
                                     type="text"
-                                    value={values.username}
+                                    value={values.phone}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                     className={classes.loginInput}
-                                    error={touched.username && Boolean(errors.username)}
+                                    error={touched.phone && Boolean(errors.phone)}
                                 />
-                                {touched.username && errors.username && (
+                                {touched.phone && errors.phone && (
                                     <FormHelperText error id="standard-weight-helper-text--register">
-                                        {errors.username}
+                                        {errors.phone}
                                     </FormHelperText>
                                 )}
                             </Grid>
@@ -198,7 +203,6 @@ const RestRegister = ({ ...others }) => {
                                 </FormHelperText>
                             )}
                         </FormControl>
-
                         <FormControl fullWidth error={Boolean(touched.password && errors.password)} className={classes.loginInput}>
                             <InputLabel htmlFor="outlined-adornment-password-register">Password</InputLabel>
                             <OutlinedInput

@@ -22,7 +22,7 @@ import {
 // assets
 import { IconBrandTelegram, IconBuildingStore, IconMailbox, IconPhoto } from '@tabler/icons';
 import User1 from './../../../../assets/images/users/user-round.svg';
-
+import { useSelector } from 'react-redux';
 // style constant
 const useStyles = makeStyles((theme) => ({
     navContainer: {
@@ -106,7 +106,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NotificationList = () => {
     const classes = useStyles();
-
+   
     return (
         <List className={classes.navContainer}>
             <div className={classes.itemAction}>

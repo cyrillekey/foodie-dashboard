@@ -107,30 +107,37 @@ const RestLogin = (props, { ...others }) => {
                 onSubmit={(values, { setErrors, setStatus, setSubmitting }) => {
                     try {
                         axios
-                            .post( configData.API_SERVER + 'users/login', {
-                                password: values.password,
-                                email: values.email
+                            .post( configData.API_SERVER + 'login', {
+                                user_password: values.password,
+                                user_mail: values.email
                             })
                             .then(function (response) {
-                                if (response.data.success) {
-                                    console.log(response.data);
+                                if (response.status === 200) {
+                                    if(response.data.customer.accountType === "ADMIN"){
                                     dispatcher({
                                         type: ACCOUNT_INITIALIZE,
-                                        payload: { isLoggedIn: true, user: response.data.user, token: response.data.token }
+                                        payload: { isLoggedIn: true, user: response.data.customer, token: response.data.token }
                                     });
                                     if (scriptedRef.current) {
                                         setStatus({ success: true });
                                         setSubmitting(false);
                                     }
-                                } else {
+                                }else{
                                     setStatus({ success: false });
-                                    setErrors({ submit: response.data.msg });
+                                    setErrors({ submit: "Unauthorized" });
+                                    setSubmitting(false);
+                                }
+                                } else {
+                                    
+                                    setStatus({ success: false });
+                                    setErrors({ submit: response.data.message });
                                     setSubmitting(false);
                                 }
                             })
                             .catch(function (error) {
+                                console.log(error.response)
                                 setStatus({ success: false });
-                                setErrors({ submit: error.response.data.msg });
+                                setErrors({ submit: error.response.data.message });
                                 setSubmitting(false);
                             });
                     } catch (err) {
@@ -251,7 +258,7 @@ const RestLogin = (props, { ...others }) => {
                                     variant="contained"
                                     color="secondary"
                                 >
-                                    Sign IN
+                                    Sign in
                                 </Button>
                             </AnimateButton>
                         </Box>
