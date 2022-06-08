@@ -134,10 +134,10 @@ const RestLogin = (props, { ...others }) => {
                                     setSubmitting(false);
                                 }
                             })
-                            .catch(function (error) {
-                                console.log(error.response)
+                            .catch((error)=> {
+                                console.log(error.error)
                                 setStatus({ success: false });
-                                setErrors({ submit: error.response.data.message });
+                                setErrors({ submit: error.response !=null ? error.response.data.message : "Something went Wrong"});
                                 setSubmitting(false);
                             });
                     } catch (err) {

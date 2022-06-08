@@ -1,9 +1,9 @@
 // assets
-import { IconBrandFramer, IconTypography, IconPalette, IconShadow, IconWindmill, IconLayoutGridAdd } from '@tabler/icons';
+import { IconBrandFramer, IconPalette, IconShadow, IconWindmill, IconLayoutGridAdd ,IconBrandProducthunt} from '@tabler/icons';
 
 // constant
 const icons = {
-    IconTypography: IconTypography,
+    IconTypography: IconBrandProducthunt,
     IconPalette: IconPalette,
     IconShadow: IconShadow,
     IconWindmill: IconWindmill,
@@ -15,12 +15,12 @@ const icons = {
 
 export const utilities = {
     id: 'utilities',
-    title: 'Utilities',
+    title: 'Main',
     type: 'group',
     children: [
         {
             id: 'util-typography',
-            title: 'Typography',
+            title: 'Products',
             type: 'item',
             url: '/utils/util-typography',
             icon: icons['IconTypography'],
@@ -28,7 +28,7 @@ export const utilities = {
         },
         {
             id: 'util-color',
-            title: 'Color',
+            title: 'Users',
             type: 'item',
             url: '/utils/util-color',
             icon: icons['IconPalette'],
@@ -36,7 +36,7 @@ export const utilities = {
         },
         {
             id: 'util-shadow',
-            title: 'Shadow',
+            title: 'Orders',
             type: 'item',
             url: '/utils/util-shadow',
             icon: icons['IconShadow'],
