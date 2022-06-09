@@ -1,11 +1,11 @@
 // assets
-import { IconBrandFramer, IconPalette, IconShadow, IconWindmill, IconLayoutGridAdd ,IconBrandProducthunt} from '@tabler/icons';
+import { IconBrandFramer, IconPalette, IconShadow, IconWindmill, IconLayoutGridAdd ,IconShoppingCart, IconUsers, IconTruckDelivery} from '@tabler/icons';
 
 // constant
 const icons = {
-    IconTypography: IconBrandProducthunt,
-    IconPalette: IconPalette,
-    IconShadow: IconShadow,
+    IconTypography: IconShoppingCart,
+    IconPalette: IconUsers,
+    IconShadow: IconTruckDelivery,
     IconWindmill: IconWindmill,
     IconBrandFramer: IconBrandFramer,
     IconLayoutGridAdd: IconLayoutGridAdd
@@ -20,7 +20,7 @@ export const utilities = {
     children: [
         {
             id: 'util-typography',
-            title: 'Products',
+            title: 'Food',
             type: 'item',
             url: '/utils/util-typography',
             icon: icons['IconTypography'],
