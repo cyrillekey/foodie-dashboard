@@ -10,11 +10,12 @@ import AuthGuard from './../utils/route-guard/AuthGuard';
 const DashboardDefault = Loadable(lazy(() => import('../views/dashboard/Default')));
 
 // utilities routing
-const UtilsTypography = Loadable(lazy(() => import('../views/utilities/Typography')));
+const UtilsTypography = Loadable(lazy(() => import('../views/products')));
 const UtilsColor = Loadable(lazy(() => import('../views/utilities/Color')));
 const UtilsShadow = Loadable(lazy(() => import('../views/utilities/Shadow')));
 const UtilsMaterialIcons = Loadable(lazy(() => import('../views/utilities/MaterialIcons')));
 const UtilsTablerIcons = Loadable(lazy(() => import('../views/utilities/TablerIcons')));
+const CreateNewProduct = Loadable(lazy(()=>import('../views/products/newproduct')));
 
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('../views/sample-page')));
@@ -34,7 +35,7 @@ const MainRoutes = () => {
                 '/utils/util-shadow',
                 '/icons/tabler-icons',
                 '/icons/material-icons',
-
+                '/products/createnew',
                 '/sample-page'
             ]}
         >
@@ -48,7 +49,7 @@ const MainRoutes = () => {
                         <Route path="/utils/util-shadow" component={UtilsShadow} />
                         <Route path="/icons/tabler-icons" component={UtilsTablerIcons} />
                         <Route path="/icons/material-icons" component={UtilsMaterialIcons} />
-
+                        <Route path="/products/createnew"component={CreateNewProduct} />
                         <Route path="/sample-page" component={SamplePage} />
                     </AuthGuard>
                 </Switch>
