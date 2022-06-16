@@ -1,11 +1,11 @@
 // assets
-import { IconBrandFramer, IconTypography, IconPalette, IconShadow, IconWindmill, IconLayoutGridAdd } from '@tabler/icons';
+import { IconBrandFramer, IconPalette, IconShadow, IconWindmill, IconLayoutGridAdd ,IconShoppingCart, IconUsers, IconTruckDelivery} from '@tabler/icons';
 
 // constant
 const icons = {
-    IconTypography: IconTypography,
-    IconPalette: IconPalette,
-    IconShadow: IconShadow,
+    IconTypography: IconShoppingCart,
+    IconPalette: IconUsers,
+    IconShadow: IconTruckDelivery,
     IconWindmill: IconWindmill,
     IconBrandFramer: IconBrandFramer,
     IconLayoutGridAdd: IconLayoutGridAdd
@@ -15,20 +15,28 @@ const icons = {
 
 export const utilities = {
     id: 'utilities',
-    title: 'Utilities',
+    title: 'Main',
     type: 'group',
     children: [
         {
             id: 'util-typography',
-            title: 'Typography',
+            title: 'Categories',
             type: 'item',
             url: '/utils/util-typography',
             icon: icons['IconTypography'],
-            breadcrumbs: false
+            breadcrumbs: false,
+            children:[
+                {
+                id:'category-new',
+                title:'New Category',
+                type:'item',
+                url:'/category/createnew'
+                }
+            ]
         },
         {
             id: 'util-color',
-            title: 'Color',
+            title: 'Users',
             type: 'item',
             url: '/utils/util-color',
             icon: icons['IconPalette'],
@@ -36,7 +44,7 @@ export const utilities = {
         },
         {
             id: 'util-shadow',
-            title: 'Shadow',
+            title: 'Orders',
             type: 'item',
             url: '/utils/util-shadow',
             icon: icons['IconShadow'],

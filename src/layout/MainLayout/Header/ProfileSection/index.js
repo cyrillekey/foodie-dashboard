@@ -216,11 +216,11 @@ const ProfileSection = () => {
                                                 <Typography variant="h4">Good Morning,</Typography>
                                                 <Typography component="span" variant="h4" className={classes.name}>
 
-                                                    {account.user !=null ? account.user.user_name : "John Doe"}
+                                                    { account.user?.user_name ?? "John Doe"}
                                                 </Typography>
                                             </Grid>
                                             <Grid item>
-                                                <Typography variant="subtitle2">{account.user!=null ? account.user.accountType : "Admin"}</Typography>
+                                                <Typography variant="subtitle2">{ account.user?.accountType ?? "Admin"}</Typography>
                                             </Grid>
                                         </Grid>
                                         <OutlinedInput
