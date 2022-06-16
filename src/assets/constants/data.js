@@ -1,21 +1,12 @@
-export const columns = [
-    { field: 'id', headerName: 'ID', width: 100 },
-    { field: 'firstName', headerName: 'First name', width: 160 },
-    { field: 'lastName', headerName: 'Last name', width: 160 },
+export const categoriesColumns = [
+    { field: 'cat_id', headerName: 'ID', width: 100 ,type:'number'},
+    { field: 'cat_name', headerName: 'Category Name', width: 200 },
+    { field: 'cat_desc', headerName: 'Category Desc', width: 200 },
     {
-      field: 'age',
-      headerName: 'Age',
-      type: 'number',
+      field: 'cat_icon',
+      headerName: 'cat_icon',
+      sortable:false,
       width: 150,
-    },
-    {
-      field: 'fullName',
-      headerName: 'Full name',
-      description: 'This column has a value getter and is not sortable.',
-      sortable: false,
-      width: 160,
-      valueGetter: (params) =>
-        `${params.row.firstName || ''} ${params.row.lastName || ''}`,
     },
   ];
   

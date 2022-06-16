@@ -20,11 +20,19 @@ export const utilities = {
     children: [
         {
             id: 'util-typography',
-            title: 'Food',
+            title: 'Categories',
             type: 'item',
             url: '/utils/util-typography',
             icon: icons['IconTypography'],
-            breadcrumbs: false
+            breadcrumbs: false,
+            children:[
+                {
+                id:'category-new',
+                title:'New Category',
+                type:'item',
+                url:'/category/createnew'
+                }
+            ]
         },
         {
             id: 'util-color',

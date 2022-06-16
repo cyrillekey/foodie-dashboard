@@ -1,17 +1,30 @@
 import React from 'react';
 // material-ui
-import { Grid, Link } from '@material-ui/core';
+import { Grid,Button} from '@material-ui/core';
 // project imports
+import { Link } from 'react-router-dom';
 import SubCard from '../../ui-component/cards/SubCard';
 import MainCard from '../../ui-component/cards/MainCard';
 import { gridSpacing } from '../../store/constant';
 import { DataGrid,GridColDef,GridValueGetterParams } from '@material-ui/data-grid';
-import {columns, rows} from '../../assets/constants/data';
+import {categoriesColumns, rows} from '../../assets/constants/data';
+import axios from 'axios';
+import config from '../../config';
 //==============================|| TYPOGRAPHY ||==============================//
-
 const Typography = () => {
+    const [data,setData] = React.useState([]);
+    React.useEffect(()=>{
+        let isMounted = true
+        axios.get(config.API_SERVER+"get-all-categories").then(resp=>{
+            if( isMounted)
+            if (resp.status === 200){
+            setData(resp.data);
+            }
+        }).catch(err=>{})
+        return (()=>{isMounted=false})
+    },[]);
     return (
-        <MainCard title="Food" secondary={<h6>New</h6>}>
+        <MainCard title="Food" secondary={<Button><Link to="/category/createnew">Create New</Link></Button>}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
                     <SubCard title="Popular Products" >
@@ -22,8 +35,9 @@ const Typography = () => {
                         }}
                         >
                         <DataGrid
-                        rows={rows}
-                        columns={columns}
+                        getRowId={row=>row.cat_id}
+                        rows={data}
+                        columns={categoriesColumns}
                         checkboxSelection
 
                         />
