@@ -24,7 +24,10 @@ const Typography = () => {
         return (()=>{isMounted=false})
     },[]);
     return (
-        <MainCard title="Food" secondary={<Button><Link to="/category/createnew">Create New</Link></Button>}>
+        <MainCard title="Categories" secondary={<Button variant='outlined' color='info' ><Link to="/category/createnew" style={{
+            textDecoration:'none',
+            color:"#000000"
+        }}>Create New</Link></Button>}>
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12} sm={12}>
                     <SubCard title="Popular Products" >
