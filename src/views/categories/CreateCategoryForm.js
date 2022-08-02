@@ -71,7 +71,7 @@ export const CreateCategoryForm = ({others}) => {
       })}
       onSubmit={(values,{setErrors,setStatus,setSubmitting})=>{
         try {
-          const data = new FormData();
+      const data = new FormData();
       data.append("file",file);
       data.append("upload_preset","btpmy93j");
       data.append("cloud_name","dftgy3yfd");

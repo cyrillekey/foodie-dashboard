@@ -11,12 +11,13 @@ const DashboardDefault = Loadable(lazy(() => import('../views/dashboard/Default'
 
 // utilities routing
 const UtilsTypography = Loadable(lazy(() => import('../views/categories/')));
-const UtilsColor = Loadable(lazy(() => import('../views/utilities/Color')));
+const CreateFood = Loadable(lazy(() =>import('../views/food/CreateNew')))
 const UtilsShadow = Loadable(lazy(() => import('../views/utilities/Shadow')));
 const UtilsMaterialIcons = Loadable(lazy(() => import('../views/utilities/MaterialIcons')));
 const UtilsTablerIcons = Loadable(lazy(() => import('../views/utilities/TablerIcons')));
 const CreateNewProduct = Loadable(lazy(()=>import('../views/categories/Newcategory')));
-
+const FoodHome = Loadable(lazy(()=>import('../views/food')))
+const SingleFood = Loadable(lazy(()=>import('../views/food/SingleFood')))
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('../views/sample-page')));
 
@@ -29,14 +30,15 @@ const MainRoutes = () => {
         <Route
             path={[
                 '/dashboard/default',
-
-                '/utils/util-typography',
-                '/utils/util-color',
-                '/utils/util-shadow',
+                '/categories/list',
+                '/users/home',
+                '/food/home',
                 '/icons/tabler-icons',
                 '/icons/material-icons',
                 '/category/createnew',
-                '/sample-page'
+                '/sample-page',
+                '/food/createnew',
+                '/food/singlefood/:id'
             ]}
         >
             <MainLayout>
@@ -44,13 +46,10 @@ const MainRoutes = () => {
                     <AuthGuard>
                         <Route path="/dashboard/default" component={DashboardDefault} />
 
-                        <Route path="/utils/util-typography" component={UtilsTypography} />
-                        <Route path="/utils/util-color" component={UtilsColor} />
-                        <Route path="/utils/util-shadow" component={UtilsShadow} />
-                        <Route path="/icons/tabler-icons" component={UtilsTablerIcons} />
-                        <Route path="/icons/material-icons" component={UtilsMaterialIcons} />
-                        <Route path="/category/createnew"component={CreateNewProduct} />
-                        <Route path="/sample-page" component={SamplePage} />
+                        <Route path="/categories/list" component={UtilsTypography} />
+                        <Route path="/food/home" component={FoodHome} />
+                        <Route path="/food/createnew" component={CreateFood}/>
+                        <Route path="/food/singlefood/:id" component={SingleFood}/>
                     </AuthGuard>
                 </Switch>
             </MainLayout>
