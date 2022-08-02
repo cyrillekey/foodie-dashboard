@@ -1,5 +1,5 @@
 // assets
-import { IconBrandFramer, IconPalette, IconShadow, IconWindmill, IconLayoutGridAdd ,IconShoppingCart, IconUsers, IconTruckDelivery} from '@tabler/icons';
+import { IconBrandFramer, IconPalette, IconShadow, IconWindmill, IconLayoutGridAdd ,IconShoppingCart, IconUsers, IconTruckDelivery,IconPizza} from '@tabler/icons';
 
 // constant
 const icons = {
@@ -8,7 +8,9 @@ const icons = {
     IconShadow: IconTruckDelivery,
     IconWindmill: IconWindmill,
     IconBrandFramer: IconBrandFramer,
-    IconLayoutGridAdd: IconLayoutGridAdd
+    IconLayoutGridAdd: IconLayoutGridAdd,
+    IconPizza:IconPizza,
+
 };
 
 //-----------------------|| UTILITIES MENU ITEMS ||-----------------------//
@@ -19,10 +21,10 @@ export const utilities = {
     type: 'group',
     children: [
         {
-            id: 'util-typography',
+            id: 'category',
             title: 'Categories',
             type: 'item',
-            url: '/utils/util-typography',
+            url: '/categories/list',
             icon: icons['IconTypography'],
             breadcrumbs: false,
             children:[
@@ -35,18 +37,40 @@ export const utilities = {
             ]
         },
         {
-            id: 'util-color',
+            id: 'user',
             title: 'Users',
             type: 'item',
-            url: '/utils/util-color',
+            url: '/users/home',
             icon: icons['IconPalette'],
             breadcrumbs: false
+        },
+        {
+            id:'food',
+            title:'Food Products',
+            type:'collapse',
+            icon:icons['IconPizza'],
+            children:[
+                {
+                    id: 'food_list',
+                    title: 'List',
+                    type: 'item',
+                    url:'/food/home',
+                    breadcrumbs: false
+                },
+                {
+                    id:'create-new',
+                    title:'Create New',
+                    type:'item',
+                    url:'/food/createnew',
+                    breadcrumbs:false
+                }
+            ]
         },
         {
             id: 'util-shadow',
             title: 'Orders',
             type: 'item',
-            url: '/utils/util-shadow',
+            url: '/orders/home',
             icon: icons['IconShadow'],
             breadcrumbs: false
         },
@@ -71,6 +95,6 @@ export const utilities = {
                     breadcrumbs: false
                 }
             ]
-        }
+        },
     ]
 };
