@@ -12,14 +12,11 @@ const DashboardDefault = Loadable(lazy(() => import('../views/dashboard/Default'
 // utilities routing
 const UtilsTypography = Loadable(lazy(() => import('../views/categories/')));
 const CreateFood = Loadable(lazy(() =>import('../views/food/CreateNew')))
-const UtilsShadow = Loadable(lazy(() => import('../views/utilities/Shadow')));
-const UtilsMaterialIcons = Loadable(lazy(() => import('../views/utilities/MaterialIcons')));
-const UtilsTablerIcons = Loadable(lazy(() => import('../views/utilities/TablerIcons')));
-const CreateNewProduct = Loadable(lazy(()=>import('../views/categories/Newcategory')));
 const FoodHome = Loadable(lazy(()=>import('../views/food')))
 const SingleFood = Loadable(lazy(()=>import('../views/food/SingleFood')))
+const Couriers = Loadable(lazy(()=>import('../views/couriers/Index')))
+const Orders = Loadable(lazy(()=>import('../views/Orders/Index')))
 // sample page routing
-const SamplePage = Loadable(lazy(() => import('../views/sample-page')));
 
 //-----------------------|| MAIN ROUTING ||-----------------------//
 
@@ -31,25 +28,29 @@ const MainRoutes = () => {
             path={[
                 '/dashboard/default',
                 '/categories/list',
-                '/users/home',
+                '/couriers/home',
                 '/food/home',
                 '/icons/tabler-icons',
                 '/icons/material-icons',
                 '/category/createnew',
-                '/sample-page',
                 '/food/createnew',
-                '/food/singlefood/:id'
+                '/food/singlefood/:id',
+                '/orders/home',
+                '/orders/pending',
+                '/orders/fulfilled',
+                '/orders/reports'
             ]}
         >
             <MainLayout>
                 <Switch location={location} key={location.pathname}>
                     <AuthGuard>
                         <Route path="/dashboard/default" component={DashboardDefault} />
-
                         <Route path="/categories/list" component={UtilsTypography} />
                         <Route path="/food/home" component={FoodHome} />
                         <Route path="/food/createnew" component={CreateFood}/>
                         <Route path="/food/singlefood/:id" component={SingleFood}/>
+                        <Route path="/couriers/home" component={Couriers}/>
+                        <Route path="/orders/home" component={Orders}/>
                     </AuthGuard>
                 </Switch>
             </MainLayout>

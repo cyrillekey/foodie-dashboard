@@ -7,12 +7,13 @@ import config from '../../config';
 import { gridSpacing } from '../../store/constant';
 import MainCard from '../../ui-component/cards/MainCard';
 import EarningCard from '../dashboard/Default/EarningCard';
-
+import { useHistory } from 'react-router-dom';
 const Index = () => {
     const [loading, setLoading] = React.useState(true);
     const [data, setData] = React.useState(true);
     const token = useSelector(state=>state.account.token);
     const user = useSelector(state=>state.account.user);
+    const navigate = useHistory()
     React.useEffect(() => {
         axios
             .get(config.API_SERVER+`admin-product-summary/${user.restaurant?.restaurant_id}`,
@@ -32,7 +33,7 @@ const Index = () => {
                 console.log(err.response)
                 setLoading(false);
             });
-    }, []);
+    }, [token,user?.restaurant?.restaurant_id]);
     return (
         <Grid container spacing={gridSpacing}>
             <Grid item xs={12}>
@@ -57,6 +58,9 @@ const Index = () => {
                                 <DataGrid
                         getRowId={row=>row.food_id}
                         rows={data.food}
+                        onCellClick={(params)=>{
+                            navigate.push(`/food/singlefood/${params.id}`)
+                        }}
                         columns={[
                             {field:'food_id',headerName:'Id',width:100,type:'number'},
                             {field:'food_name',headerName:'Food Name',width:200},

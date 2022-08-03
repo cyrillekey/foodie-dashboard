@@ -45,11 +45,11 @@ const CreateNew = () => {
                             validationSchema={Yup.object().shape({
                                 food_name: Yup.string().max(255).required('Food Name Is Required'),
                                 food_desc: Yup.string().max(255).required('Food Description Is Required'),
-                                food_price: Yup.number().required('Food price Required'),
+                                food_price: Yup.number().required('Food price Required').min(1),
                                 food_image: Yup.mixed().required('Upload Image Of The Food'),
                                 food_category: Yup.mixed().required('Food Caegory Is Required'),
-                                food_calories: Yup.number().required('Food Calories Required'),
-                                stock:Yup.number().required('Food Stock Required')
+                                food_calories: Yup.number().required('Food Calories Required').min(1),
+                                stock:Yup.number().required('Food Stock Required').min(1)
                             })}
                             onSubmit={(values, { setErrors, setStatus, setSubmitting }) => {
                                 try {
