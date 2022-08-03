@@ -5,7 +5,7 @@ const config = {
     defaultPath: '/dashboard/default',
     fontFamily: `'Roboto', sans-serif`,
     borderRadius: 12,
-    //API_SERVER: 'https://foodieback.herokuapp.com/'
+   // API_SERVER: 'https://foodieback.herokuapp.com/'
    API_SERVER: 'http://localhost:8080/'
 };
 

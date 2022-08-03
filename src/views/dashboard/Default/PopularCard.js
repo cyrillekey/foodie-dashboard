@@ -119,6 +119,7 @@ const PopularCard = ({ isLoading }) => {
                                 <BajajAreaChartCard />
                             </Grid>
                             <Grid item xs={12}>
+                                
                                 <Grid container direction="column">
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">
@@ -149,6 +150,7 @@ const PopularCard = ({ isLoading }) => {
                                         </Typography>
                                     </Grid>
                                 </Grid>
+                                
                                 <Divider className={classes.divider} />
                                 <Grid container direction="column">
                                     <Grid item>
