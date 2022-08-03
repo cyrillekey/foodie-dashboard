@@ -1,5 +1,5 @@
 // assets
-import { IconBrandFramer, IconPalette, IconShadow, IconWindmill, IconLayoutGridAdd ,IconShoppingCart, IconUsers, IconTruckDelivery,IconPizza} from '@tabler/icons';
+import { IconBrandFramer, IconWindmill, IconLayoutGridAdd ,IconShoppingCart, IconUsers, IconTruckDelivery,IconPizza,} from '@tabler/icons';
 
 // constant
 const icons = {
@@ -38,9 +38,9 @@ export const utilities = {
         },
         {
             id: 'user',
-            title: 'Users',
+            title: 'Couriers',
             type: 'item',
-            url: '/users/home',
+            url: '/couriers/home',
             icon: icons['IconPalette'],
             breadcrumbs: false
         },
@@ -67,12 +67,41 @@ export const utilities = {
             ]
         },
         {
-            id: 'util-shadow',
+            id: 'order-user',
             title: 'Orders',
-            type: 'item',
-            url: '/orders/home',
+            type: 'collapse',
             icon: icons['IconShadow'],
-            breadcrumbs: false
+            breadcrumbs: false,
+            children:[
+                {
+                    id:'order-home',
+                    title:'Orders',
+                    type:'item',
+                    url:'/orders/home',
+                    breadcrumbs:true,
+                },
+                {
+                    id:'order-home',
+                    title:'Pending Orders',
+                    type:'item',
+                    url:'/orders/pending',
+                    breadcrumbs:true,
+                },
+                {
+                    id:'order-home',
+                    title:'Fulfilled Orders',
+                    type:'item',
+                    url:'/orders/fulfilled',
+                    breadcrumbs:true,
+                },
+                {
+                    id:'order-home',
+                    title:'Reports',
+                    type:'item',
+                    url:'/orders/reports',
+                    breadcrumbs:true,
+                }
+            ]
         },
         {
             id: 'icons',
