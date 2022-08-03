@@ -109,7 +109,7 @@ const SingleFood = () => {
                         <FoodReviews isLoading={isLoading} data={data?.reviews} />
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <RecentOrders />
+                        <RecentOrders isLoading={isLoading} data={data?.reviews}/>
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <PopularCard isLoading={isLoading} />
