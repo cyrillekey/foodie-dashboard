@@ -1,5 +1,5 @@
-import { CardContent, Divider, Grid, Typography,Avatar } from '@material-ui/core';
-import { ProductionQuantityLimits } from '@material-ui/icons';
+import { CardContent, Divider, Grid, Typography,Avatar,CardActions,Button } from '@material-ui/core';
+import { ChevronRightOutlined, ProductionQuantityLimits } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react'
 import { gridSpacing } from '../../../store/constant';
@@ -39,7 +39,7 @@ const RecentOrders = ({isLoading,data}) => {
                         <Grid item xs={12}>
                         {
                             data !== undefined && data.length > 0 ?
-                            data.map((order)=>(
+                            data.slice(0,7).map((order)=>(
                                 <>
                                 <Grid container direction="column">
                                         <Grid item>
@@ -52,14 +52,15 @@ const RecentOrders = ({isLoading,data}) => {
                                                 <Grid item>
                                                         <Grid container alignItems="center" justifyContent="space-between">
                                                             <Grid item>
-                                                                
+                                                                <Typography variant='subtitle1' color="inherit">
+                                                                    {order.orderStatus}
+                                                                </Typography>
                                                             </Grid>
                                                             <Grid item>
                                                                 <Avatar variant='rounded' className={ order.orderStatus === "CANCELLED"  ? classes.avatarError : classes.avatarSuccess}>
-                                                                    {
-                                                                        
-                                                                    }
+                                                                
                                                                 </Avatar>
+                                                                
                                                             </Grid>
                                                         </Grid>
                                                     </Grid>
@@ -71,7 +72,7 @@ const RecentOrders = ({isLoading,data}) => {
                                                 </Typography>
                                             </Grid>
                                     </Grid>
-                                    <Divider/>
+                                    <Divider className={classes.divider}/>
                                 </>
                             ))
                             :
@@ -86,6 +87,12 @@ const RecentOrders = ({isLoading,data}) => {
                         </Grid>
                     </Grid>
                 </CardContent>
+                <CardActions className={classes.cardAction}>
+                    <Button small disableElevation>
+                            View All 
+                            <ChevronRightOutlined/>
+                    </Button>
+                </CardActions>
             </MainCard>
         }
     </React.Fragment>
