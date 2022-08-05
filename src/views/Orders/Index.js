@@ -19,16 +19,16 @@ const Index = () => {
                   <EarningCard title="Total Orders This Month" value={12}/>
                 </Grid>
                 <Grid item lg={4} md={6} xs={12}>
-                  <EarningCard title="Total Orders This Month" value={12}/>
+                  <EarningCard title="Delivered Orders This Month" value={12}/>
                 </Grid>
                 <Grid item lg={4} md={6} xs={12}>
-                  <EarningCard title="Total Orders This Month" value={12}/>
+                  <EarningCard title="Cancelled Orders This Month" value={12}/>
                 </Grid>
                 <Grid item lg={4} md={6} xs={12}>
-                  <EarningCard title="Total Orders This Month" value={12}/>
+                  <EarningCard title="Pending Orders This Month" value={12}/>
                 </Grid>
                 <Grid item lg={4} md={6} xs={12}>
-                  <EarningCard title="Total Orders This Month" value={12}/>
+                  <EarningCard title="Total Earnings This Month" value={12}/>
                 </Grid>
                 <Grid item lg={4} md={6} xs={12}>
                   <EarningCard title="Total Orders This Month" value={12}/>
