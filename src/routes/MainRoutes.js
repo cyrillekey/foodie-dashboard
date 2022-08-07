@@ -11,6 +11,7 @@ const DashboardDefault = Loadable(lazy(() => import('../views/dashboard/Default'
 
 // utilities routing
 const UtilsTypography = Loadable(lazy(() => import('../views/categories/')));
+const CreateCategory = Loadable(lazy(()=>import('../views/categories/Newcategory')))
 const CreateFood = Loadable(lazy(() =>import('../views/food/CreateNew')))
 const FoodHome = Loadable(lazy(()=>import('../views/food')))
 const SingleFood = Loadable(lazy(()=>import('../views/food/SingleFood')))
@@ -51,6 +52,7 @@ const MainRoutes = () => {
                         <Route path="/food/singlefood/:id" component={SingleFood}/>
                         <Route path="/couriers/home" component={Couriers}/>
                         <Route path="/orders/home" component={Orders}/>
+                        <Route path="/category/createnew" component={CreateCategory}/>
                     </AuthGuard>
                 </Switch>
             </MainLayout>

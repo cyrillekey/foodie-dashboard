@@ -7,9 +7,6 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import configData from '../../config'
 import AnimateButton from '../../ui-component/extended/AnimateButton';
-import { Cloudinary } from '@cloudinary/url-gen';
-import { AdvancedImage } from '@cloudinary/react';
-import {createReadStream} from 'fs'
 import { useState } from 'react';
 const useStyles = makeStyles((theme) => ({
     redButton: {

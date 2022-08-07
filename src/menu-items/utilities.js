@@ -1,12 +1,12 @@
 // assets
-import { IconBrandFramer, IconWindmill, IconLayoutGridAdd ,IconShoppingCart, IconUsers, IconTruckDelivery,IconPizza,} from '@tabler/icons';
+import { IconBrandFramer, IconWindmill, IconLayoutGridAdd ,IconShoppingCart, IconUsers, IconTruckDelivery,IconPizza,IconCurrencyDollar} from '@tabler/icons';
 
 // constant
 const icons = {
     IconTypography: IconShoppingCart,
     IconPalette: IconUsers,
     IconShadow: IconTruckDelivery,
-    IconWindmill: IconWindmill,
+    IconWindmill: IconCurrencyDollar,
     IconBrandFramer: IconBrandFramer,
     IconLayoutGridAdd: IconLayoutGridAdd,
     IconPizza:IconPizza,
@@ -67,7 +67,7 @@ export const utilities = {
             ]
         },
         {
-            id: 'order-user',
+            id: 'order',
             title: 'Orders',
             type: 'collapse',
             icon: icons['IconShadow'],
@@ -81,21 +81,21 @@ export const utilities = {
                     breadcrumbs:true,
                 },
                 {
-                    id:'order-home',
+                    id:'order-pending',
                     title:'Pending Orders',
                     type:'item',
                     url:'/orders/pending',
                     breadcrumbs:true,
                 },
                 {
-                    id:'order-home',
+                    id:'order-fullfiled',
                     title:'Fulfilled Orders',
                     type:'item',
                     url:'/orders/fulfilled',
                     breadcrumbs:true,
                 },
                 {
-                    id:'order-home',
+                    id:'order-reports',
                     title:'Reports',
                     type:'item',
                     url:'/orders/reports',
@@ -104,8 +104,8 @@ export const utilities = {
             ]
         },
         {
-            id: 'icons',
-            title: 'Icons',
+            id: 'transaction',
+            title: 'transactions',
             type: 'collapse',
             icon: icons['IconWindmill'],
             children: [

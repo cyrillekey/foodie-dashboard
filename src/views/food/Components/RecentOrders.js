@@ -6,7 +6,7 @@ import { gridSpacing } from '../../../store/constant';
 import MainCard from '../../../ui-component/cards/MainCard';
 import SkeletonPopularCard from '../../../ui-component/cards/Skeleton/PopularCard';
 
-const RecentOrders = ({isLoading,data}) => {
+const RecentOrders = ({isLoading,data,title="Recent Orders"}) => {
     const classes =  useStyles();
     // const [anchorEl, setAnchorEl] = React.useState(null);
     
@@ -29,7 +29,7 @@ const RecentOrders = ({isLoading,data}) => {
                         <Grid item xs={12}>
                             <Grid container alignContent="center" justifyContent="space-between">
                                 <Grid item>
-                                    <Typography variant="h4"> Recent Orders</Typography>
+                                    <Typography variant="h4">{title}</Typography>
                                 </Grid>
                                 <Grid item>
                                     <ProductionQuantityLimits/>
