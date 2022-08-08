@@ -11,11 +11,15 @@ const DashboardDefault = Loadable(lazy(() => import('../views/dashboard/Default'
 
 // utilities routing
 const UtilsTypography = Loadable(lazy(() => import('../views/categories/')));
+const CreateCategory = Loadable(lazy(()=>import('../views/categories/Newcategory')))
 const CreateFood = Loadable(lazy(() =>import('../views/food/CreateNew')))
 const FoodHome = Loadable(lazy(()=>import('../views/food')))
 const SingleFood = Loadable(lazy(()=>import('../views/food/SingleFood')))
 const Couriers = Loadable(lazy(()=>import('../views/couriers/Index')))
 const Orders = Loadable(lazy(()=>import('../views/Orders/Index')))
+const PendingOrders = Loadable(lazy(()=>import('../views/Orders/PendingOrders')))
+const FullfiledOrders = Loadable(lazy(()=>import('../views/Orders/FullfiledOrders')))
+const OrdersReports = Loadable(lazy(()=>import('../views/Orders/OrdersReports')))
 // sample page routing
 
 //-----------------------|| MAIN ROUTING ||-----------------------//
@@ -38,7 +42,7 @@ const MainRoutes = () => {
                 '/orders/home',
                 '/orders/pending',
                 '/orders/fulfilled',
-                '/orders/reports'
+                '/orders/reports',
             ]}
         >
             <MainLayout>
@@ -51,6 +55,10 @@ const MainRoutes = () => {
                         <Route path="/food/singlefood/:id" component={SingleFood}/>
                         <Route path="/couriers/home" component={Couriers}/>
                         <Route path="/orders/home" component={Orders}/>
+                        <Route path="/category/createnew" component={CreateCategory}/>
+                        <Route path ="/orders/pending" component={PendingOrders}/>
+                        <Route path="/orders/fulfilled" component={FullfiledOrders}/>
+                        <Route path="/orders/reports" component={OrdersReports}/>
                     </AuthGuard>
                 </Switch>
             </MainLayout>

@@ -16,7 +16,7 @@ export const other = {
     children: [
         {
             id: 'sample-page',
-            title: 'Sample Page',
+            title: 'Settings',
             type: 'item',
             url: '/sample-page',
             icon: icons['IconBrandChrome'],
