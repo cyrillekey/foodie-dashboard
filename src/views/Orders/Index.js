@@ -69,11 +69,15 @@ const Index = () => {
                         getRowId={row=>row.order_id}
                         rows={data?.orders_month ?? []}
                         columns={[
-                          {field:'order_id',headerName:"Order Id",type:'number',width:100},
-                          {field:'order_date',headerName:"Order Date",type:'date',width:200},
-                          {field:'order_amount',headerName:"Order Amount",type:'number',width:150},
-                          {field:'quantity',headerName:'Quantity',type:'number',width:150},
-                          {field:'orderStatus',headerName:'Status',width:150}
+                          {field:'order_id',headerName:"Id",type:'number',width:100,headerAlign:'left'},
+                          {field:'order_date',headerName:"Order Date",type:'date',width:150,headerAlign:'left'},
+                          {field:'order_amount',headerName:"Order Amount",type:'number',width:100,headerAlign:'left'},
+                          {field:'quantity',headerName:'Quantity',type:'number',width:140,headerAlign:'left'},
+                          {field:'orderStatus',headerName:'Status',width:150,headerAlign:'left'},
+                          {field:'delivery_cost',headerName:'Delivery Cost',type:'number',width:150,headerAlign:'left'},
+                          {field:'delivey_date',headerName:'Delivery Date',type:'date',width:200,headerAlign:'left'},
+                          {field:'payment_types',headerName:'Payment Type',width:200,headerAlign:'left'},
+                          
                         ]}
                         autoHeight={true}
                         checkboxSelection

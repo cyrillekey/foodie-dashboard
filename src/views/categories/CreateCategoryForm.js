@@ -106,7 +106,7 @@ export const CreateCategoryForm = ({others}) => {
           setSubmitting(false);
         })
       }).catch(err=>{
-        setErrors(err.message)
+        setErrors({submit:err.message})
         setSubmitting(false);
         setStatus({success:false})
       })
