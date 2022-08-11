@@ -21,11 +21,11 @@ const Index = () => {
       }
     }).then(response=>{
       setData(response.data);
-      console.log(response.data);
+      setIsLoading(false)
     }).catch(error=>{
       console.log(error.response);
     })
-    setIsLoading(false)
+    
   },[])
   return (
     <Grid container spacing={gridSpacing}>
