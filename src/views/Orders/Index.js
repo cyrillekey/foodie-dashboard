@@ -15,7 +15,7 @@ const Index = () => {
   const user =useSelector(state=>state.account.user)
   const [data,setData] = React.useState({});
   React.useEffect(()=>{
-    axios.get(config.API_SERVER+`admin-page-order-summary/${user?.restaurant?.restaurant_id}`,{
+    axios.get(config.API_SERVER+`admin/admin-page-order-summary/${user?.restaurant?.restaurant_id}`,{
       headers:{
         'Authorization':`Bearer ${token}`
       }
