@@ -23,12 +23,13 @@ const App = () => {
     const user = useSelector(state=>state.account.user);
     const dispatch = useDispatch();
     React.useEffect(()=>{
+        if(user!=null){
         axios({
             method:'POST',
             url:config.API_SERVER + "silentlogin",
             data:{
-                user_mail:user.user_mail,
-                user_password:user.password
+                user_mail:user?.user_mail,
+                user_password:user?.password
             },
             headers:{
                 'Content-Type':'application/json'
@@ -44,6 +45,7 @@ const App = () => {
         }).catch(error=>{
             console.log(error)
         })
+    }
     },[])
 
     return (
